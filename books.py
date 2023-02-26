@@ -125,6 +125,7 @@ class Books:
 
         try:
             curser.execute(query)
+            self.mydb.commit()
         except mysql.connector.Error as err:
             print(err.msg)
             my_output('\nEntry ERROR !\n\
