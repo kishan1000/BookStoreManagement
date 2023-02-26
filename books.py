@@ -24,9 +24,9 @@ class Books:
         qty = my_input(int, "Enter the Qty Recived : ")
 
         query = f'INSERT INTO BOOKS(name, auth, price, qty) VALUES("{name}", "{auth}", {price}, {qty});'
-        curser = self.mydb.cursor()
+        cursor = self.mydb.cursor()
         try:
-            curser.execute(query)
+            cursor.execute(query)
             self.mydb.commit()
         except mysql.connector.Error as err:
             print(err.msg)
@@ -34,21 +34,21 @@ class Books:
                         Contact Technical Team \n')
         else:
             my_output('\nBook Record Inserted Successfully\n')
-        curser.close()
+        cursor.close()
 
     def update_price(self):
         id = my_input(int, "Enter the id of the book for update in price : ")
 
         query = f'SELECT name, price FROM BOOKS WHERE ID = {id};'
-        curser = self.mydb.cursor()
+        cursor = self.mydb.cursor()
         try:
-            curser.execute(query)
+            cursor.execute(query)
         except mysql.connector.Error as err:
             print(err.msg)
             my_output('\nEntry ERROR !\n\
                         Contact Technical Team \n')
         else:
-            row = curser.fetchone()
+            row = cursor.fetchone()
             if not row:
                 my_output('No Book found!!!')
                 return
@@ -63,18 +63,18 @@ class Books:
                 newPrice = my_input(int, "Enter the new price : ")
                 newQuery = f'UPDATE BOOKS SET price = {newPrice} WHERE id = {id};'
                 try:
-                    curser.execute(newQuery)
+                    cursor.execute(newQuery)
                     self.mydb.commit()
                 except mysql.connector.Error as err:
                     print(err.msg)
                     my_output('\nEntry ERROR !\n\
                         Contact Technical Team \n')
-                    curser.close()
+                    cursor.close()
                 else:
                     my_output('\nBook Price Updated Successfully\n')
             else:
                 my_output('\nNo changes Made!!\n')
-        curser.close()
+        cursor.close()
 
     # search book by id only
 
@@ -82,15 +82,15 @@ class Books:
         id = my_input(int, "Enter book id for details : ")
 
         query = f'SELECT * FROM BOOKS WHERE id = {id};'
-        curser = self.mydb.cursor()
+        cursor = self.mydb.cursor()
         try:
-            curser.execute(query)
+            cursor.execute(query)
         except mysql.connector.Error as err:
             print(err.msg)
             my_output('\nEntry ERROR !\n\
                         Contact Technical Team \n')
         else:
-            row = curser.fetchone()
+            row = cursor.fetchone()
             if not row:
                 my_output('\nNo record Found\n')
             else:
@@ -101,39 +101,39 @@ class Books:
                 Inventory count : {row[4]}\n
                 '''
                 my_output(msg)
-        curser.close()
+        cursor.close()
 
     # update the book after purchase
 
     def update(self):
 
         query = f'SELECT book_id, qty FROM PURCHASES WHERE received = "T" AND inv IS NULL;'
-        curser = self.mydb.cursor()
+        cursor = self.mydb.cursor()
 
         try:
-            curser.execute(query)
+            cursor.execute(query)
         except mysql.connector.Error as err:
             print(err.msg)
             my_output('\nEntry ERROR !\n\
                         Contact Technical Team \n')
-            curser.close()
+            cursor.close()
             return
         else:
-            rows = curser.fetchall()
+            rows = cursor.fetchall()
 
         query = f'UPDATE purchases SET inv = 1 WHERE received = "T" AND inv IS NULL;'
 
         try:
-            curser.execute(query)
+            cursor.execute(query)
             self.mydb.commit()
         except mysql.connector.Error as err:
             print(err.msg)
             my_output('\nEntry ERROR !\n\
                         Contact Technical Team \n')
-            curser.close()
+            cursor.close()
             return
 
-        curser.close()
+        cursor.close()
 
         if not rows:
             my_output('No order found to update')
@@ -143,34 +143,34 @@ class Books:
             b_id = row[0]
             qty = row[1]
             query = f'UPDATE BOOKS SET qty = qty+{qty} WHERE id = {b_id};'
-            curser = self.mydb.cursor()
+            cursor = self.mydb.cursor()
 
             try:
-                curser.execute(query)
+                cursor.execute(query)
                 self.mydb.commit()
             except mysql.connector.Error as err:
                 print(err.msg)
                 my_output('\nEntry ERROR !\n\
                         Contact Technical Team \n')
-                curser.close()
+                cursor.close()
                 return
 
-            curser.close()
+            cursor.close()
 
         my_output('The orders recieved have been updated.')
 
     def display(self):
         query = f'SELECT * FROM BOOKS;'
-        curser = self.mydb.cursor()
+        cursor = self.mydb.cursor()
 
         try:
-            curser.execute(query)
+            cursor.execute(query)
         except mysql.connector.Error as err:
             print(err.msg)
             my_output('\nEntry ERROR !\n\
                     Contact Technical Team \n')
         else:
-            rows = curser.fetchall()
+            rows = cursor.fetchall()
             if len(rows) == 0:
                 my_output('\nNo record Found\n')
             else:
@@ -186,4 +186,4 @@ class Books:
                     Quantity : {row[4]} 
                     '''
                 my_output(msg)
-        curser.close()
+        cursor.close()
