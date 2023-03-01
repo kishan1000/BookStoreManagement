@@ -5,6 +5,9 @@ from mysql.connector import errorcode
 from books import Books
 from suppliers import Suppliers
 from purchases import Purchases
+from employees import Employees
+from members import Members
+from sales import Sales
 
 HOST = 'localhost'
 USER = 'Kishan'  # user name here
@@ -51,6 +54,27 @@ if __name__ == '__main__':
     # books.display()
     # suppliers.display()
     # purchases.new_order()
-    purchases.view()
+    # purchases.view()
     # purchases.mark_cancel()
     # purchases.mark_reciv()
+
+    employees = Employees(mydb)
+    # employees.display()
+    # employees.add_emp()
+    # employees.update_salary()
+    # employees.assign_mgr_state()
+    # employees.get_emp_details()
+    # employees.display()
+
+
+    members = Members(mydb)
+    # members.add_member()
+    # members.diaplay()
+    # members.get_member_details()
+    # members.refresh()
+
+    sales = Sales(mydb)
+    # books.display()
+    # members.diaplay()
+    # sales.add_bill()
+    sales.find_total_sales()
