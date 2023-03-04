@@ -98,7 +98,7 @@ class Purchases:
             my_output(msg)
         cursor.close()
 
-    def mark_cancel(self):
+    def mark_canceled(self):
         ord_id = my_input(int, 'Enter the order id for order cancelled : ')
         query = f'UPDATE PURCHASES SET received = "C" WHERE ord_id = {ord_id};'
         cursor = self.mydb.cursor()
@@ -114,7 +114,7 @@ class Purchases:
             my_output('Cancelled Marked successfully')
         cursor.close()
 
-    def mark_reciv(self):
+    def mark_recieved(self):
         ord_id = my_input(int, 'Enter the order id for order received : ')
         query = f'UPDATE PURCHASES SET received = "T" WHERE ord_id = {ord_id};'
         cursor = self.mydb.cursor()

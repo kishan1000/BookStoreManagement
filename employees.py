@@ -160,7 +160,7 @@ class Employees:
             my_output('\nEntry ERROR !\n\
                         Contact Technical Team \n')
         else:
-            print(cursor.stored_results())
+            # print(cursor.stored_results())
             my_output('Salary update Successfully')
         cursor.close()
 
