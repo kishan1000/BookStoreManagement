@@ -24,6 +24,22 @@ class Sales:
         qty = my_input(int, 'Enter the quantity : ')
         amount = 0
 
+        query = f'SELECT name FROM MEMBERS WHERE id = {member_id};'
+        cursor = self.mydb.cursor()
+
+        try:
+            cursor.execute(query)
+        except mysql.connector.Error as err:
+            print(err.msg)
+            my_output('\nEntry ERROR !\n\
+                        Contact Technical Team \n')
+        else:
+            row = cursor.fetchone()
+            if not row:
+                my_output(f'No Member Found with member id : {member_id}')
+                cursor.close()
+                return
+
         query = f'SELECT price, qty FROM BOOKS WHERE id = {book_id};'
         cursor = self.mydb.cursor()
 
@@ -35,13 +51,14 @@ class Sales:
                         Contact Technical Team \n')
         else:
             row = cursor.fetchone()
-            if len(row) == 0:
-                my_output('No Book Found with book_id : ', book_id)
+            if not row:
+                my_output(f'No Book Found with book id : {book_id}')
                 cursor.close()
                 return
             else:
                 amount = row[0]*qty
                 my_output(f'The bill amount : {amount}')
+
 
         query = f'INSERT INTO sales(member_id, book_id, qty, amount, date_s) VALUES({member_id}, {book_id}, {qty}, {amount}, curdate());'
 
@@ -66,7 +83,7 @@ class Sales:
                         Contact Technical Team \n')
         else:
             row = cursor.fetchone()
-            if len(row) == 0:
+            if not row:
                 msg = '''
                 The entered details maybe wrong.
                 Please Recheck and Enter again
@@ -90,3 +107,6 @@ class Sales:
         else:
             row = cursor.fetchone()
             my_output(f'Total sales this year : {row[0]}')
+
+    def display():
+        pass
