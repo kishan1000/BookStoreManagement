@@ -17,6 +17,7 @@ USER = 'Kishan'  # user name here
 PASS = 'kishan'  # password
 DATABASE = 'management'
 
+
 def book_menu():
     os.system('cls')
     msg = '''
@@ -35,41 +36,219 @@ def book_menu():
 
     if c == 1:
         books.add()
-        input()
+        input('Press Enter...')
     elif c == 2:
         books.update_price()
-        input()
+        input('Press Enter...')
     elif c == 3:
         books.search()
-        input()
+        input('Press Enter...')
     elif c == 4:
         books.update()
-        input()
+        input('Press Enter...')
     elif c == 5:
         books.display()
-        input()
+        input('Press Enter...')
     elif c == 6:
         main_menu()
+        return
     else:
         print('Wrong input')
-        input()
-    
+        input('Press Enter...')
+
     book_menu()
 
-def sup_menu():
+
+def suppliers_menu():
+    os.system('cls')
+    msg = '''
+    *************************************************
+                    SUPPLIERS MENU
+    *************************************************
+        1. ADD
+        2. REMOVE
+        3. SEARCH
+        4. DISPLAY ALL
+        5. RETURN TO MAIN MENU
+    '''
+
+    my_output(msg)
+    c = my_input(int, 'Enter Your Choice : ')
+
+    if c == 1:
+        suppliers.add_supplier()
+        input('Press Enter...')
+    elif c == 2:
+        suppliers.remove_supplier()
+        input('Press Enter...')
+    elif c == 3:
+        suppliers.search()
+        input('Press Enter...')
+    elif c == 4:
+        suppliers.display()
+        input('Press Enter...')
+    elif c == 5:
+        main_menu()
+        return
+    else:
+        print('Wrong input')
+        input('Press Enter...')
+
+    suppliers_menu()
+
+
+def purchases_menu():
+    os.system('cls')
+    msg = '''
+    *************************************************
+                    PURCHASES MENU
+    *************************************************
+        1. NEW ORDER
+        2. VIEW ALL
+        3. CANCEL ORDER
+        4. RECIEVED ORDER
+        5. RETURN TO MAIN MENU
+    '''
+
+    my_output(msg)
+    c = my_input(int, 'Enter Your Choice : ')
+
+    if c == 1:
+        purchases.new_order()
+        input('Press Enter...')
+    elif c == 2:
+        purchases.display()
+        input('Press Enter...')
+    elif c == 3:
+        purchases.mark_canceled()
+        input('Press Enter...')
+    elif c == 4:
+        purchases.mark_recieved()
+        input('Press Enter...')
+    elif c == 5:
+        main_menu()
+        return
+    else:
+        print('Wrong input')
+        input('Press Enter...')
+
+    purchases_menu()
+
+
+def employees_menu():
+    os.system('cls')
+    msg = '''
+    *************************************************
+                    EMPLOYEES MENU
+    *************************************************
+        1. NEW EMPLOYEE
+        2. SEARCH EMPLOYEE
+        3. ASSIGN MANAGER
+        4. VIEW ALL
+        5. UPDATE SALARY
+        6. RETURN TO MAIN MENU
+    '''
+
+    my_output(msg)
+    c = my_input(int, 'Enter Your Choice : ')
+
+    if c == 1:
+        employees.add_emp()
+        input('Press Enter...')
+    elif c == 2:
+        id = my_input(int, 'Enter the ID of Employee : ')
+        employees.find_emp()
+        input('Press Enter...')
+    elif c == 3:
+        employees.assign_mgr_state()
+        input('Press Enter...')
+    elif c == 4:
+        employees.display()
+        input('Press Enter...')
+    elif c == 5:
+        employees.update_salary()
+        input('Press Enter...')
+    elif c == 6:
+        main_menu()
+        return
+    else:
+        print('Wrong input')
+        input('Press Enter...')
+
+    employees_menu()
+
+
+def members_menu():
+    os.system('cls')
+    msg = '''
+    *************************************************
+                    MEMBERS MENU
+    *************************************************
+        1. NEW MEMBER
+        2. SEARCH MEMBER
+        3. REFRESH MEMBERS VALIDITY
+        4. VIEW ALL
+        5. RETURN TO MAIN MENU
+    '''
+
+    my_output(msg)
+    c = my_input(int, 'Enter Your Choice : ')
+
+    if c == 1:
+        members.add_member()
+        input('Press Enter...')
+    elif c == 2:
+        members.get_member_details()
+        input('Press Enter...')
+    elif c == 3:
+        members.refresh()
+        input('Press Enter...')
+    elif c == 4:
+        members.diaplay()
+        input('Press Enter...')
+    elif c == 5:
+        main_menu()
+        return
+    else:
+        print('Wrong input')
+        input('Press Enter...')
+
+    members_menu()
+
+
+def sales_menu():
+    os.system('cls')
+    msg = '''
+    *************************************************
+                    SALES MENU
+    *************************************************
+        1. ADD NEW BILL
+        2. TOTAL SALES OF THE YEAR
+        3. RETURN TO MAIN MENU
+    '''
+
+    my_output(msg)
+    c = my_input(int, 'Enter Your Choice : ')
+
+    if c == 1:
+        sales.add_bill()
+        input('Press Enter...')
+    elif c == 2:
+        sales.find_total_sales()
+        input('Press Enter...')
+    elif c == 3:
+        main_menu()
+        return
+    else:
+        print('Wrong input')
+        input('Press Enter...')
+
+    sales_menu()
+
+
+def password():
     pass
 
-def pur_menu():
-    pass
-
-def emp_menu():
-    pass
-
-def mem_menu():
-    pass
-
-def sal_menu():
-    pass
 
 def main_menu():
     os.system('cls')
@@ -92,34 +271,34 @@ def main_menu():
     if c == 1:
         os.system('cls')
         book_menu()
-        input()
+        input('Press Enter...')
     elif c == 2:
         os.system('cls')
-        sup_menu()
-        input()
+        suppliers_menu()
+        input('Press Enter...')
     elif c == 3:
         os.system('cls')
-        pur_menu()
-        input()
+        purchases_menu()
+        input('Press Enter...')
     elif c == 4:
         os.system('cls')
-        emp_menu()
-        input()
+        employees_menu()
+        input('Press Enter...')
     elif c == 5:
         os.system('cls')
-        mem_menu()
-        input()
+        members_menu()
+        input('Press Enter...')
     elif c == 6:
         os.system('cls')
-        sal_menu()
-        input()
+        sales_menu()
+        input('Press Enter...')
     elif c == 7:
         exit(1)
     else:
         print('Wrong input')
-        main_menu()
     
-    return
+    main_menu()
+
 
 
 if __name__ == '__main__':
@@ -141,49 +320,15 @@ if __name__ == '__main__':
         exit(1)
 
     books = Books(mydb)
-    # books.display()
-    # books.add()
-    # books.display()
-    # books.update_price()
-    # books.display()
-    # books.search()
 
     suppliers = Suppliers(mydb)
-    # suppliers.display()
-    # suppliers.add_supplier()
-    # suppliers.display()
-    # suppliers.remove_supplier()
-    # suppliers.search()
 
     purchases = Purchases(mydb)
-    # books.display()
-    # books.update()
-    # books.display()
-    # suppliers.display()
-    # purchases.new_order()
-    # purchases.view()
-    # purchases.mark_cancel()
-    # purchases.mark_reciv()
 
     employees = Employees(mydb)
-    # employees.display()
-    # employees.add_emp()
-    # employees.update_salary()
-    # employees.assign_mgr_state()
-    # employees.get_emp_details()
-    # employees.display()
-
 
     members = Members(mydb)
-    # members.add_member()
-    # members.diaplay()
-    # members.get_member_details()
-    # members.refresh()
 
     sales = Sales(mydb)
-    # books.display()
-    # members.diaplay()
-    # sales.add_bill()
-    # sales.find_total_sales()
 
     main_menu()
