@@ -61,8 +61,10 @@ class Suppliers:
         cursor = self.mydb.cursor()
 
         try:
+            cursor.execute('SET foreign_key_checks = 0;')
             cursor.execute(query)
             self.mydb.commit()
+            cursor.execute('SET foreign_key_checks = 1;')
         except mysql.connector.Error as err:
             print(err.msg)
             my_output('\nEntry ERROR !\n\
