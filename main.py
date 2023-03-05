@@ -157,7 +157,7 @@ def employees_menu():
         input('Press Enter...')
     elif c == 2:
         id = my_input(int, 'Enter the ID of Employee : ')
-        employees.find_emp()
+        employees.find_emp(id, display=True)
         input('Press Enter...')
     elif c == 3:
         employees.assign_mgr_state()
@@ -293,12 +293,11 @@ def main_menu():
         sales_menu()
         input('Press Enter...')
     elif c == 7:
-        exit(1)
+        exit(0)
     else:
         print('Wrong input')
-    
-    main_menu()
 
+    main_menu()
 
 
 if __name__ == '__main__':

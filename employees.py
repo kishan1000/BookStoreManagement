@@ -191,7 +191,7 @@ class Employees:
                     return False
         return True
 
-    def find_emp(self, id):
+    def find_emp(self, id, display=False):
         query = f'SELECT * FROM EMPLOYEES WHERE id = {id};'
         cursor = self.mydb.cursor()
 
@@ -208,4 +208,17 @@ class Employees:
                 my_output('Employee Not Found!!')
                 cursor.close()
                 return False
+            elif display:
+                msg = f'''
+                    ID : {row[0]}
+                    Name : {row[1]}
+                    Address :   {row[2]}
+                                {row[3]}
+                                {row[4]}
+                    State : {row[5]}
+                    Contact no. : {row[6]}
+                    Date of Joining : {row[7]} 
+                    Salary : {row[8]}
+                    '''
+                my_output(msg)
         return True
