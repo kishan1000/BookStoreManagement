@@ -34,7 +34,7 @@ class Purchases:
             self.mydb.commit()
         except mysql.connector.Error as err:
             if err.errno == 1452:
-                my_output('Worng book Id or correct supplier Id')
+                my_output('Wrong book Id or supplier Id')
             else:
                 print(err.msg)
                 my_output('\nEntry ERROR !\n\
