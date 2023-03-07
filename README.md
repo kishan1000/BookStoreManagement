@@ -1,6 +1,6 @@
 # This is a Book Store Management System Project
 
-* ## It Uses MySQL as DATABASE to Store All the information
+* ## It Uses MySQL as DBMS to Store All the information
 
 * ## Database Details : -
 
