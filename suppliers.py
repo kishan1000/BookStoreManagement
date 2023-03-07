@@ -6,14 +6,6 @@ from utils import my_input, my_output
 
 class Suppliers:
 
-    # int id; // Primary Key
-    # string name;
-    # long int phn; # takes as str
-    # string addr_line1;
-    # string addr_line2;
-    # string addr_city;
-    # string addr_state;
-
     def __init__(self, dbconnector:mysql.connector.connection_cext.CMySQLConnection):
         self.mydb = dbconnector
 

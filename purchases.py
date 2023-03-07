@@ -8,15 +8,6 @@ from utils import my_input, my_output
 
 class Purchases:
 
-    # int ord_id;  // Primary Key
-    # int book_id; // FK ref (books)
-    # int sup_id;  // FK ref (suppliers)
-    # int qty;
-    # date dt_ordered;
-    # int eta;
-    # char received; // Check(T or C or F) def (F)
-    # int inv;
-
     def __init__(self, dbconnector: mysql.connector.connection_cext.CMySQLConnection):
         self.mydb = dbconnector
 

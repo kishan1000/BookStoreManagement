@@ -9,18 +9,6 @@ from utils import my_input, my_output
 
 class Employees:
 
-    # FIELD             TYPE            NULL    KEY     DEFAULT
-    # id	            int	            NO	    PRI
-    # name	            varchar(255)	YES
-    # addr_line1	    varchar(255)	YES
-    # addr_line2	    varchar(255)	YES
-    # addr_city	        varchar(255)	YES
-    # addr_state	    varchar(255)	YES
-    # phn	            mediumtext	    YES
-    # date_of_joining	date	        YES
-    # salary	        mediumtext	    YES
-    # mgr_status	    char(1)	        YES		          F
-
     def __init__(self, dbconnector: mysql.connector.connection_cext.CMySQLConnection):
         self.mydb = dbconnector
 

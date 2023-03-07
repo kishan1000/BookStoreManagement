@@ -7,18 +7,7 @@ from utils import my_input, my_output
 # mysql.connector.connection_cext.CMySQLConnection
 
 
-class Members:
-
-    # id	        int	            NO	    PRI	
-    # name	        varchar(255)	YES		
-    # addr_line1	varchar(255)	YES		
-    # addr_line2	varchar(255)	YES		
-    # addr_city	    varchar(255)	YES		
-    # addr_state	varchar(255)	YES		
-    # phn	        mediumtext	    YES		
-    # beg_date	    date	        YES		
-    # end_date	    date	        YES		
-    # valid	        varchar(10)	    YES		
+class Members:	
 
     def __init__(self, dbconnector: mysql.connector.connection_cext.CMySQLConnection):
         self.mydb = dbconnector

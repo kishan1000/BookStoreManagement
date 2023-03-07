@@ -2,14 +2,6 @@ import mysql.connector
 from utils import my_input, my_output
 
 
-# mysql.connector.connection_cext.CMySQLConnection
-# Table BOOKS :-
-# int id; // Primary Key
-# string name;
-# string auth;
-# int price;
-# int qty;
-
 class Books:
 
     def __init__(self, dbconnector: mysql.connector.connection_cext.CMySQLConnection):

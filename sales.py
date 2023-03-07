@@ -8,13 +8,6 @@ from utils import my_output, my_input
 
 class Sales:
 
-    # invoice_id	int
-    # member_id	    int
-    # book_id	    int
-    # qty	        int
-    # amount	    int
-    # date_s	    date
-
     def __init__(self, dbconnector: mysql.connector.connection_cext.CMySQLConnection):
         self.mydb = dbconnector
 
