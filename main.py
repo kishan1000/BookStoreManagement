@@ -13,8 +13,8 @@ from members import Members
 from sales import Sales
 
 HOST = 'localhost'
-USER = 'Kishan'  # user name here
-PASS = 'kishan'  # password
+USER = ''  # user name here
+PASS = ''  # password
 DATABASE = 'management'
 
 
