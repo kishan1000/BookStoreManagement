@@ -44,7 +44,7 @@ VALUES
 
 
 -- members table
-CREATE TABLE customers (
+CREATE TABLE members (
     id int NOT NULL AUTO_INCREMENT,
     name varchar(255),
     addr_line1 varchar(255),
@@ -124,8 +124,8 @@ CREATE TABLE sales (
 
 -- some data to insert into sales table
 INSERT INTO sales (member_id, book_id, qty, amount, date_s) VALUES
-(1, 2, 3, 1200, '2022-02-20'),
-(1, 3, 1, 300, '2022-02-20'),
-(2, 1, 2, 1500, '2022-02-21'),
-(3, 4, 1, 800, '2022-02-22'),
-(2, 5, 4, 2400, '2022-02-23');
+(1, 2, 3, 1200, '2023-02-20'),
+(1, 3, 1, 300, '2023-02-20'),
+(2, 1, 2, 1500, '2023-02-21'),
+(3, 4, 1, 800, '2023-02-22'),
+(2, 5, 4, 2400, '2023-02-23');
