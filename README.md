@@ -86,3 +86,9 @@
             | amount      | int         | YES  |                     |                |
             | date_s      | date        | YES  |                     |                |
 
+* ## Install MySQL, create the DATABASE _management_ and create the all the tables (all SQL queries are in queries.sql) then install _mysql.connector_ packege in python environment, provide the database credentials in _main.py_ and run it to get started with this project.
+
+
+* ## References : -
+    * `https://dev.mysql.com/doc/connector-python/en/`
+    * `https://www.geeksforgeeks.org/crud-operation-in-python-using-mysql/`
