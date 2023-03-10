@@ -90,5 +90,5 @@
 
 
 * ## References : -
-    * `https://dev.mysql.com/doc/connector-python/en/`
-    * `https://www.geeksforgeeks.org/crud-operation-in-python-using-mysql/`
+    * https://dev.mysql.com/doc/connector-python/en/
+    * https://www.geeksforgeeks.org/crud-operation-in-python-using-mysql/
